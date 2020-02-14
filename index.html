@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Rock Paper Scissors Magic</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <header class="score">
+                <div class="score__title">
+                    <span class="title">
+                        Rock
+                    </span>
+                    <span class="title">
+                        Paper
+                    </span>
+                    <span class="title">
+                        Scissors
+                    </span>
+                </div>
+                <div class="score__result"></div>
+                <div class="score__total"></div>
+            </header>
+            <section class="choice">
+                <div class="choose">
+                    <div class="choose__title">
+                        Choose!
+                    </div>
+                    <div class="choose__rps">
+                        <span class="choose__rock animated infinite"></span>
+                        <span class="choose__paper animated infinite"></span>
+                        <span class="choose__scissors animated infinite"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="choice-result init">
+            </section>
+
+
+            <section class="play">            
+                <div class="play__choice animated infinite"><span class="choose__wait"></span></div>
+                <div class="play__result"><p class="wait">Waiting...</p><button class="btn-play init" onclick="playAgain()">Play Again!</button></div>
+                <div class="play__comp animated infinite"><span class="choose__wait"></span></div>
+            </section>
+
+            <footer>
+                <div class="play-again">
+
+                </div>
+                <div class="reset"></div>
+            </footer>
+        </div>
+        
+        <!-- GAME OVER -->
+        <section class="end-game init">
+            <h1 class="end-title">You Killed It!! Great job!</h1>
+            <button class="btn-end" onclick="init()">Play Again!</button>
+        </section>
+        <script src="script.js"></script>
+    </body>
+</html>
