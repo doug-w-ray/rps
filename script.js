@@ -14,9 +14,8 @@ let score = document.querySelector('.score__total');
 let btn_play = document.querySelector('.btn-play');
 let end_title = document.querySelector('.end-title');
 let wait = document.querySelector('.wait');
-let button = document.querySelector('.btn-play');
 let gamePlaying = true;
-let gameOver = document.querySelector('.end-game');
+let gameEnd = document.querySelector('.end-game');
         
 // Play while gameplaying = true
 // Initialize game
@@ -65,21 +64,24 @@ if(gamePlaying === true) {
             resultText = '<h1>You lose! Try again!</h1>'
             play__comp.classList.add('pulse');
             score.textContent--;
-                (score.textContent === "3") ? gamePlaying = false : gamePlaying = true;
         } else {
             resultText = '<h1>You\'re a winner!! Good Job!</h1>';
             play__choice.classList.add('pulse');
             score.textContent++;
-            (score.textContent === "7") ? gamePlaying = false : gamePlaying = true;
         }
     };
 
     function result() {
-        wait.style.display = 'none';
-        btn_play.classList.remove('init');
-        play__choose.classList.add('init');
-        choose__result.classList.remove('init');
-        choose__result.innerHTML = resultText;
+        if((score.textContent === "7") || (score.textContent === "3")) {
+            gamePlaying = false;
+            gameOver();
+        } else {
+            wait.style.display = 'none';
+            btn_play.classList.remove('init');
+            play__choose.classList.add('init');
+            choose__result.classList.remove('init');
+            choose__result.innerHTML = resultText;
+        }
     };
     function playAgain() {
         play__choose.classList.remove('init');
@@ -90,13 +92,27 @@ if(gamePlaying === true) {
         choose__result.classList.add('init');
     };
 } else {
-    // container.classList.add('init');
-    // gameOver.classList.remove('init');
-    console.log(gamePlaying);
+    gameOver();
 };
 function init() {
     score.textContent = 5;
     gamePlaying = true;
     container.classList.remove('init');
-    gameOver.classList.add('init');
+    gameEnd.classList.add('init');
+    play__choose.classList.remove('init');
+    play__choice.innerHTML = '<span class="choose__wait"></span>';
+    play__comp.innerHTML = '<span class="choose__wait"></span>';
+    btn_play.classList.add('init');
+    wait.style.display = 'block';
+    choose__result.classList.add('init');
 };
+
+function gameOver() {
+    if(score.textContent === "7") {
+        end_title.innerHTML = "Great job!! You killed it! Wanna have another go?";      
+    } else {
+        end_title.innerHTML = "Unlucky this time! You'll get there. Try again!";
+    }
+    gameEnd.classList.remove('init');
+    container.classList.add('init');
+}
