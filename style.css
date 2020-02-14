@@ -173,6 +173,10 @@ body {
     transform: translateY(-1px);
 }
 
+.btn-end:hover {
+    background-color: #ccc;
+}
+
 .btn-play:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,.4);
     transform: translateY(-3px);
@@ -210,6 +214,7 @@ button {
 .end-title {
     font-weight: 600;
     font-size: 2.2em;
+    margin 20px;
 }
 
 .init {
