@@ -72,7 +72,7 @@ if(gamePlaying === true) {
     };
 
     function result() {
-        if((score.textContent === "7") || (score.textContent === "3")) {
+        if((score.textContent === "10") || (score.textContent === "0")) {
             gamePlaying = false;
             gameOver();
         } else {
